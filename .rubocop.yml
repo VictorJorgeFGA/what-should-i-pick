@@ -8,6 +8,7 @@ AllCops:
     - './bin/setup'
     - './config/puma.rb'
     - './config.ru'
+    - './vendor/*/**'
 
 Style/Documentation:
   Enabled: false
