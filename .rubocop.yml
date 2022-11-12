@@ -1,0 +1,27 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - './bin/bundle'
+    - './bin/importmap'
+    - './bin/rails'
+    - './bin/rake'
+    - './bin/setup'
+    - './config/puma.rb'
+    - './config.ru'
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/PerlBackrefs:
+  Enabled: false
+Style/GlobalStdStream:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
