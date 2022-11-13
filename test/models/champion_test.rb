@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class ChampionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should not allow duplicating champions by riot key' do
+    Champion.create!({key: 123})
+
+    champ = Champion.new(key: 123)
+
+    refute champ.valid?
+    assert_equal :taken, champ.errors.details[:key].first[:error]
+  end
 end
