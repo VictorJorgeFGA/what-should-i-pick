@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 AllCops:
   NewCops: enable
   Exclude:
@@ -9,6 +11,8 @@ AllCops:
     - './config/puma.rb'
     - './config.ru'
     - './vendor/**/*'
+    - './db/schema.rb'
+    - './db/migrate/*'
 
 Style/Documentation:
   Enabled: false
@@ -26,3 +30,13 @@ Style/SymbolArray:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Security/JSONLoad:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 40
+Rails/Output:
+  Exclude:
+    - './lib/tasks/*'
+    - './db/seeds.rb'
