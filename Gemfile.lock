@@ -274,6 +274,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   httparty (~> 0.20.0)
+  i18n
   importmap-rails
   jbuilder
   pg (~> 1.1)
