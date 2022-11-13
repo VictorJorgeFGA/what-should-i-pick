@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  key: 1
+  title: MyString
+  image_full: MyString
+  image_sprite: MyString
+  lore: MyText
+  blurb: MyText
+  hp: 1
+  movespeed: 1
+  armor: 1
+  attackrange: 1
+  attackdamage: 1
+  crit: 1.5
+  attack: 1
+  defense: 1
+  magic: 1
+  difficulty: 1
+  tags: MyText
+  enemytips: MyText
+  allytips: MyText
+
+two:
+  name: MyString
+  key: 1
+  title: MyString
+  image_full: MyString
+  image_sprite: MyString
+  lore: MyText
+  blurb: MyText
+  hp: 1
+  movespeed: 1
+  armor: 1
+  attackrange: 1
+  attackdamage: 1
+  crit: 1.5
+  attack: 1
+  defense: 1
+  magic: 1
+  difficulty: 1
+  tags: MyText
+  enemytips: MyText
+  allytips: MyText
