@@ -22,12 +22,7 @@ jobs:
     services:
       postgres:
         image: postgres:latest
-        env:
-          POSTGRES_DB: what_should_i_pick_test
-          POSTGRES_USERNAME: what_should_i_pick
-          POSTGRES_PASSWORD: ''
-        ports:
-          - 5432:5432
+        ports: ["5432:5432"]
 
     steps:
       - name: Checkout code
@@ -41,7 +36,7 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
+          PGHOST: 0.0.0.0
           PGUSER: what_should_i_pick
         run: |
           bin/rails db:create db:migrate
