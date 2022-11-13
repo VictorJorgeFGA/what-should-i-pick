@@ -32,3 +32,6 @@
 
 # Ignore default data
 /db/default_data
+
+# Ignore env files
+.env
