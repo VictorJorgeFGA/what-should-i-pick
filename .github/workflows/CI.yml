@@ -21,12 +21,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:12.7
+        image: postgres:latest
         env:
           POSTGRES_DB: what_should_i_pick_test
-          POSTGRES_USER: what_should_i_pick
+          POSTGRES_USERNAME: what_should_i_pick
           POSTGRES_PASSWORD: ''
-        ports: ['5432:5432']
+        ports:
+          - 5432:5432
 
     steps:
       - name: Checkout code
