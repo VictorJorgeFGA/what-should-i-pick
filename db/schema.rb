@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_12_222712) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_13_165555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "champion_translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "title"
+    t.text "lore"
+    t.text "blurb"
+    t.text "enemy_tips"
+    t.text "ally_tips"
+    t.bigint "champion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["champion_id"], name: "index_champion_translations_on_champion_id"
+    t.index ["locale"], name: "index_champion_translations_on_locale", unique: true
+  end
 
   create_table "champions", force: :cascade do |t|
     t.string "name"
@@ -41,4 +55,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_222712) do
     t.index ["key"], name: "index_champions_on_key", unique: true
   end
 
+  add_foreign_key "champion_translations", "champions"
 end

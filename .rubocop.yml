@@ -36,7 +36,11 @@ Style/WordArray:
   Enabled: false
 Metrics/BlockLength:
   Max: 40
+  Exclude:
+    - './test/**/*.rb'
 Rails/Output:
   Exclude:
     - './lib/tasks/*'
     - './db/seeds.rb'
+Rails/FilePath:
+  Enabled: false
