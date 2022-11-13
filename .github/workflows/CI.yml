@@ -48,4 +48,9 @@ jobs:
           bin/rails db:create db:migrate
 
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: what_should_i_pick
+          TESTS_DATABASE_PASSWORD: tests
         run: bin/rails test
