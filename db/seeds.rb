@@ -174,33 +174,45 @@ all_champions = [
 puts 'Seeding champion data...'
 
 all_champions.each do |champion|
-  File.open(Rails.root.join('db', 'default_data', "#{champion}.json").to_s) do |f|
-    data = JSON.load(f)['data'][champion]
-    champ = Champion.create(
-      {
-        name: data['name'],
-        key: data['key'],
-        title: data['title'],
-        image_full: data['image']['full'],
-        image_sprite: data['image']['sprite'],
-        lore: data['lore'],
-        blurb: data['blurb'],
-        hp: data['stats']['hp'].to_i,
-        move_speed: data['stats']['movespeed'].to_i,
-        armor: data['stats']['armor'].to_i,
-        attack_range: data['stats']['attackrange'].to_i,
-        attack_damage: data['stats']['attackdamage'].to_i,
-        crit: data['stats']['crit'].to_f,
-        attack: data['info']['attack'].to_i,
-        defense: data['info']['defense'].to_i,
-        magic: data['info']['magic'].to_i,
-        difficulty: data['info']['difficulty'].to_i,
-        primary_role: data['tags'][0],
-        secondary_role: data['tags'][1],
-        enemy_tips: data['enemytips'].join(' '),
-        ally_tips: data['allytips'].join(' ')
-      }
-    )
-    puts "Champion #{champion} already exists on database." unless champ.persisted?
+  response = HTTParty.get "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion/#{champion}.json"
+  data = response['data'][champion]
+  champ = Champion.create(
+    {
+      name: data['name'],
+      key: data['key'],
+      title: data['title'],
+      image_full: data['image']['full'],
+      image_sprite: data['image']['sprite'],
+      lore: data['lore'],
+      blurb: data['blurb'],
+      hp: data['stats']['hp'].to_i,
+      move_speed: data['stats']['movespeed'].to_i,
+      armor: data['stats']['armor'].to_i,
+      attack_range: data['stats']['attackrange'].to_i,
+      attack_damage: data['stats']['attackdamage'].to_i,
+      crit: data['stats']['crit'].to_f,
+      attack: data['info']['attack'].to_i,
+      defense: data['info']['defense'].to_i,
+      magic: data['info']['magic'].to_i,
+      difficulty: data['info']['difficulty'].to_i,
+      primary_role: data['tags'][0],
+      secondary_role: data['tags'][1],
+      enemy_tips: data['enemytips'].join(' '),
+      ally_tips: data['allytips'].join(' ')
+    }
+  )
+  %w[pt_BR es_ES].each do |locale|
+    response = HTTParty.get "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/#{locale}/champion/#{champion}.json"
+    data = response['data'][champion]
+
+    i18n_locale = locale == 'pt_BR' ? :'pt-BR' : :es
+    I18n.with_locale(i18n_locale) do
+      champ.title = data['title']
+      champ.lore = data['lore']
+      champ.blurb = data['blurb']
+      champ.enemy_tips = data['enemytips'].join(' ')
+      champ.ally_tips = data['allytips'].join(' ')
+    end
   end
+  puts "Failed to load seed data for champion #{champion}" unless champ.save
 end
