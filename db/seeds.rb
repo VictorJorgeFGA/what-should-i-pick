@@ -174,6 +174,7 @@ all_champions = [
 puts 'Seeding champion data...'
 
 all_champions.each do |champion|
+  puts "Getting data for #{champion}..."
   response = HTTParty.get "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion/#{champion}.json"
   data = response['data'][champion]
   champ = Champion.create(
@@ -214,5 +215,5 @@ all_champions.each do |champion|
       champ.ally_tips = data['allytips'].join(' ')
     end
   end
-  puts "Failed to load seed data for champion #{champion}" unless champ.save
+  puts "Failed to load seed data for champion #{champion}!" unless champ.save
 end

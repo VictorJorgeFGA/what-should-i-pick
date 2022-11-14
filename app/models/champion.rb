@@ -2,6 +2,8 @@ class Champion < ApplicationRecord
   has_many :champion_translations, dependent: :destroy, autosave: true
   accepts_nested_attributes_for :champion_translations
 
+  has_many :statistics, dependent: :destroy
+
   validates :key, uniqueness: true
 
   def self.translatable_fields
