@@ -16,8 +16,8 @@ Aatrox:
   defense: 4
   magic: 3
   difficulty: 4
-  primary_role: Fighter
-  secondary_role: Tank
+  primary_role: fighter
+  secondary_role: tank
   enemy_tips: Aatrox's attacks are very telegraphed, so use the time to dodge the hit zones. Aatrox's Infernal Chains are easier to exit when running towards the sides or at Aatrox. Keep your distance when Aatrox uses his Ultimate to prevent him from reviving.
   ally_tips: Use Umbral Dash while casting The Darkin Blade to increase your chances of hitting the enemy. Crowd Control abilities like Infernal Chains or your allies' immobilizing effects will help you set up The Darkin Blade. Cast World Ender when you are sure you can force a fight.
   created_at: <%= Time.zone.now %>
@@ -41,8 +41,8 @@ Ahri:
   defense: 4
   magic: 8
   difficulty: 5
-  primary_role: Mage
-  secondary_role: Assassin
+  primary_role: mage
+  secondary_role: assassin
   enemy_tips: Ahri's survivability is dramatically reduced when her Ultimate, Spirit Rush, is down. Stay behind minions to make Charm difficult to land, this will reduce Ahri's damage potential significantly.
   ally_tips: Use Charm to set up your combos, it will make landing Orb of Deception and Fox-Fire dramatically easier. Initiate team fights using Charm, and chase down stragglers with Spirit Rush. Spirit Rush enables Ahri's abilities, it opens up paths for Charm, helps double hitting with Orb of Deception, and closes to make use of Fox-Fire.
   created_at: <%= Time.zone.now %>
@@ -66,7 +66,7 @@ Akali:
   defense: 3
   magic: 8
   difficulty: 7
-  primary_role: Assassin
+  primary_role: assassin
   secondary_role:
   enemy_tips: 'Akali can still be hit by area effect spells while obscured'
   ally_tips: 'Akali excels at killing fragile champions. Let your team'
@@ -91,8 +91,8 @@ Akshan:
   defense: 3
   magic: 8
   difficulty: 0
-  primary_role: Marksman
-  secondary_role: Assassin
+  primary_role: marksman
+  secondary_role: assassin
   enemy_tips: 'Akali can still be hit by area effect spells while obscured'
   ally_tips: 'Akali excels at killing fragile champions. Let your team'
   created_at: <%= Time.zone.now %>

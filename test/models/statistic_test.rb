@@ -105,6 +105,24 @@ class StatisticTest < ActiveSupport::TestCase
     assert_equal :blank, statistic.errors.details[:champion].first[:error]
   end
 
+  test 'should update primary and secondary role with value from champion model' do
+    champion = champions(:Aatrox)
+    statistic = champion.statistics.create(
+      {
+        tier: 'iron',
+        position: 'mid',
+        win_rate: 0.504,
+        pick_rate: 0.1247,
+        period: 'week',
+        region: 'na'
+      }
+    )
+    assert_not champion.primary_role.blank?
+    assert_not champion.secondary_role.blank?
+    assert_equal champion.primary_role, statistic.primary_role
+    assert_equal champion.secondary_role, statistic.secondary_role
+  end
+
   test 'should update performance value whenver win_rate or pick_rate is updated' do
     champion = champions(:Aatrox)
     statistic = champion.statistics.create(
@@ -130,7 +148,7 @@ class StatisticTest < ActiveSupport::TestCase
     assert_equal expected_value, statistic.performance
   end
 
-  test 'should return the statistic with the highest and lowest win_rate and highest and lowest performance for a specific context' do
+  test 'should return the statistic with the highest win_rate and performance for a specific context' do
     champion = champions(:Aatrox)
     champion.statistics.create(
       {
@@ -217,9 +235,35 @@ class StatisticTest < ActiveSupport::TestCase
         region: 'na'
       }
     )
-    assert_equal 'Aatrox', Statistic.with_highest_win_rate_for(tier: 'gold', position: 'top', period: 'day', region: 'global').champion.name
-    assert_equal 'Ahri', Statistic.with_highest_performance_for(tier: 'gold', position: 'top', period: 'day', region: 'global').champion.name
-    assert_equal 'Akali', Statistic.with_lowest_win_rate_for(tier: 'gold', position: 'top', period: 'day', region: 'global').champion.name
-    assert_equal 'Akshan', Statistic.with_lowest_performance_for(tier: 'gold', position: 'top', period: 'day', region: 'global').champion.name
+    assert_equal(
+      'Aatrox',
+      Statistic.with_highest_win_rate_for(
+        role: ['mage', 'fighter', 'marksman', 'assassin'],
+        tier: 'gold',
+        position: 'top',
+        period: 'day',
+        region: 'global'
+      ).first.champion.name
+    )
+    assert_equal(
+      'Ahri',
+      Statistic.with_highest_performance_for(
+        role: ['mage', 'fighter', 'marksman', 'assassin'],
+        tier: 'gold',
+        position: 'top',
+        period: 'day',
+        region: 'global'
+      ).first.champion.name
+    )
+    assert_equal(
+      'Ahri',
+      Statistic.with_highest_performance_for(
+        role: ['assassin'],
+        tier: 'gold',
+        position: 'top',
+        period: 'day',
+        region: 'global'
+      ).first.champion.name
+    )
   end
 end

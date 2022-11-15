@@ -4,6 +4,8 @@ class Statistic < ApplicationRecord
   validates :position, uniqueness: { scope: %i[tier period region champion_id] }
   validates :tier, :position, :win_rate, :pick_rate, :period, :region, presence: true
 
+  before_save :update_roles
+
   enum(tier:
   {
     iron: 0,
@@ -50,24 +52,29 @@ class Statistic < ApplicationRecord
     tr: 11
   }, _prefix: true)
 
-  scope :with_highest_win_rate_for, ->(tier:, position:, period:, region:) {
-    where(tier:, position:, period:, region:).order(win_rate: :desc).first
+  scope :with_highest_win_rate_for, ->(role:, tier:, position:, period:, region:) {
+    includes(:champion)
+      .where(tier:, position:, period:, region:)
+      .and(where(primary_role: role).or(where(secondary_role: role)))
+      .order(win_rate: :desc)
   }
 
-  scope :with_highest_performance_for, ->(tier:, position:, period:, region:) {
-    where(tier:, position:, period:, region:).order(performance: :desc, pick_rate: :desc).first
-  }
-
-  scope :with_lowest_win_rate_for, ->(tier:, position:, period:, region:) {
-    where(tier:, position:, period:, region:).order(win_rate: :asc).first
-  }
-
-  scope :with_lowest_performance_for, ->(tier:, position:, period:, region:) {
-    where(tier:, position:, period:, region:).order(performance: :asc, pick_rate: :desc).first
+  scope :with_highest_performance_for, ->(role:, tier:, position:, period:, region:) {
+    includes(:champion)
+      .where(tier:, position:, period:, region:)
+      .and(where(primary_role: role).or(where(secondary_role: role)))
+      .order(performance: :desc, pick_rate: :desc)
   }
 
   def update_performance_value
     self.performance = (win_rate.to_f - 0.5) * pick_rate.to_f
+  end
+
+  def update_roles
+    return unless champion
+
+    self.primary_role = champion.primary_role
+    self.secondary_role = champion.secondary_role
   end
 
   def win_rate=(value)

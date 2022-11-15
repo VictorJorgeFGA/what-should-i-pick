@@ -61,6 +61,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_034646) do
     t.float "win_rate"
     t.float "pick_rate"
     t.float "performance"
+    t.string "primary_role"
+    t.string "secondary_role"
+    t.integer "kill"
+    t.integer "death"
+    t.integer "assist"
     t.integer "period"
     t.integer "region"
     t.bigint "champion_id", null: false
