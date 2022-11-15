@@ -12,6 +12,6 @@ class CreateChampionTranslations < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :champion_translations, :locale, unique: true
+    add_index :champion_translations, [:locale, :champion_id], unique: true
   end
 end
