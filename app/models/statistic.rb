@@ -1,5 +1,6 @@
 class Statistic < ApplicationRecord
   belongs_to :champion
+
   validates :position, uniqueness: { scope: %i[tier period region champion_id] }
   validates :tier, :position, :win_rate, :pick_rate, :period, :region, presence: true
 
@@ -48,4 +49,34 @@ class Statistic < ApplicationRecord
     ru: 10,
     tr: 11
   }, _prefix: true)
+
+  scope :with_highest_win_rate_for, ->(tier:, position:, period:, region:) {
+    where(tier:, position:, period:, region:).order(win_rate: :desc).first
+  }
+
+  scope :with_highest_performance_for, ->(tier:, position:, period:, region:) {
+    where(tier:, position:, period:, region:).order(performance: :desc, pick_rate: :desc).first
+  }
+
+  scope :with_lowest_win_rate_for, ->(tier:, position:, period:, region:) {
+    where(tier:, position:, period:, region:).order(win_rate: :asc).first
+  }
+
+  scope :with_lowest_performance_for, ->(tier:, position:, period:, region:) {
+    where(tier:, position:, period:, region:).order(performance: :asc, pick_rate: :desc).first
+  }
+
+  def update_performance_value
+    self.performance = (win_rate.to_f - 0.5) * pick_rate.to_f
+  end
+
+  def win_rate=(value)
+    super(value)
+    update_performance_value
+  end
+
+  def pick_rate=(value)
+    super(value)
+    update_performance_value
+  end
 end

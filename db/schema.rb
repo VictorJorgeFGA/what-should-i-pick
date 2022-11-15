@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_034646) do
     t.integer "position"
     t.float "win_rate"
     t.float "pick_rate"
+    t.float "performance"
     t.integer "period"
     t.integer "region"
     t.bigint "champion_id", null: false

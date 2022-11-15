@@ -72,3 +72,28 @@ Akali:
   ally_tips: 'Akali excels at killing fragile champions. Let your team'
   created_at: <%= Time.zone.now %>
   updated_at: <%= Time.zone.now %>
+
+Akshan:
+  name: Akshan
+  key: 166
+  title: the Rogue Sentinel
+  image_full: Akshan.png
+  image_sprite: champion0.png
+  lore: "Raising an eyebrow in the face of danger, Akshan fights evil with dashing charisma, righteous vengeance, and a conspicuous lack of shirts. He is highly skilled in the art of stealth combat, able to evade the eyes of his enemies and reappear when they least expect him. With a keen sense of justice and a legendary death-reversing weapon, he rights the wrongs of Runeterra's many scoundrels while living by his own moral code: “Don't be an ass.”"
+  blurb: "Raising an eyebrow in the face of danger, Akshan fights evil with dashing charisma, righteous vengeance, and a conspicuous lack of shirts. He is highly skilled in the art of stealth combat, able to evade the eyes of his enemies and reappear when they..."
+  hp: 570
+  move_speed: 345
+  armor: 23
+  attack_range: 125
+  attack_damage: 62
+  crit: 0.0
+  attack: 5
+  defense: 3
+  magic: 8
+  difficulty: 0
+  primary_role: Marksman
+  secondary_role: Assassin
+  enemy_tips: 'Akali can still be hit by area effect spells while obscured'
+  ally_tips: 'Akali excels at killing fragile champions. Let your team'
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

@@ -5,6 +5,7 @@ class CreateStatistics < ActiveRecord::Migration[7.0]
       t.integer :position
       t.float :win_rate
       t.float :pick_rate
+      t.float :performance
       t.integer :period
       t.integer :region
       t.references :champion, null: false, foreign_key: true

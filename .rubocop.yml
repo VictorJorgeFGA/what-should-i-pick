@@ -44,3 +44,7 @@ Rails/Output:
     - './db/seeds.rb'
 Rails/FilePath:
   Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
