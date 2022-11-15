@@ -1,0 +1,99 @@
+Aatrox:
+  name: Aatrox
+  key: 266
+  title: the Darkin Blade
+  image_full: Aatrox.png
+  image_sprite: champion0.png
+  lore: Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find freedom once more, corrupting and transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with stolen flesh, he walks Runeterra in a brutal approximation of his previous form, seeking an apocalyptic and long overdue vengeance.
+  blurb: Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...
+  hp: 650
+  move_speed: 345
+  armor: 38
+  attack_range: 175
+  attack_damage: 60
+  crit: 0.0
+  attack: 8
+  defense: 4
+  magic: 3
+  difficulty: 4
+  primary_role: fighter
+  secondary_role: tank
+  enemy_tips: Aatrox's attacks are very telegraphed, so use the time to dodge the hit zones. Aatrox's Infernal Chains are easier to exit when running towards the sides or at Aatrox. Keep your distance when Aatrox uses his Ultimate to prevent him from reviving.
+  ally_tips: Use Umbral Dash while casting The Darkin Blade to increase your chances of hitting the enemy. Crowd Control abilities like Infernal Chains or your allies' immobilizing effects will help you set up The Darkin Blade. Cast World Ender when you are sure you can force a fight.
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+Ahri:
+  name: Ahri
+  key: 103
+  title: the Nine-Tailed Fox
+  image_full: Ahri.png
+  image_sprite: champion0.png
+  lore: Innately connected to the latent power of Runeterra, Ahri
+  blurb: Innately connected to the latent power of Runeterra, Ahri
+  hp: 570
+  move_speed: 330
+  armor: 18
+  attack_range: 550
+  attack_damage: 53
+  crit: 0.0
+  attack: 3
+  defense: 4
+  magic: 8
+  difficulty: 5
+  primary_role: mage
+  secondary_role: assassin
+  enemy_tips: Ahri's survivability is dramatically reduced when her Ultimate, Spirit Rush, is down. Stay behind minions to make Charm difficult to land, this will reduce Ahri's damage potential significantly.
+  ally_tips: Use Charm to set up your combos, it will make landing Orb of Deception and Fox-Fire dramatically easier. Initiate team fights using Charm, and chase down stragglers with Spirit Rush. Spirit Rush enables Ahri's abilities, it opens up paths for Charm, helps double hitting with Orb of Deception, and closes to make use of Fox-Fire.
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+Akali:
+  name: Akali
+  key: 84
+  title: the Rogue Assassin
+  image_full: Akali.png
+  image_sprite: champion0.png
+  lore: 'Abandoning the Kinkou Order and her title of the Fist of'
+  blurb: 'Abandoning the Kinkou Order and her title of the Fist of'
+  hp: 570
+  move_speed: 345
+  armor: 23
+  attack_range: 125
+  attack_damage: 62
+  crit: 0.0
+  attack: 5
+  defense: 3
+  magic: 8
+  difficulty: 7
+  primary_role: assassin
+  secondary_role:
+  enemy_tips: 'Akali can still be hit by area effect spells while obscured'
+  ally_tips: 'Akali excels at killing fragile champions. Let your team'
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+Akshan:
+  name: Akshan
+  key: 166
+  title: the Rogue Sentinel
+  image_full: Akshan.png
+  image_sprite: champion0.png
+  lore: "Raising an eyebrow in the face of danger, Akshan fights evil with dashing charisma, righteous vengeance, and a conspicuous lack of shirts. He is highly skilled in the art of stealth combat, able to evade the eyes of his enemies and reappear when they least expect him. With a keen sense of justice and a legendary death-reversing weapon, he rights the wrongs of Runeterra's many scoundrels while living by his own moral code: “Don't be an ass.”"
+  blurb: "Raising an eyebrow in the face of danger, Akshan fights evil with dashing charisma, righteous vengeance, and a conspicuous lack of shirts. He is highly skilled in the art of stealth combat, able to evade the eyes of his enemies and reappear when they..."
+  hp: 570
+  move_speed: 345
+  armor: 23
+  attack_range: 125
+  attack_damage: 62
+  crit: 0.0
+  attack: 5
+  defense: 3
+  magic: 8
+  difficulty: 0
+  primary_role: marksman
+  secondary_role: assassin
+  enemy_tips: 'Akali can still be hit by area effect spells while obscured'
+  ally_tips: 'Akali excels at killing fragile champions. Let your team'
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_165555) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_14_034646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_165555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["champion_id"], name: "index_champion_translations_on_champion_id"
-    t.index ["locale"], name: "index_champion_translations_on_locale", unique: true
+    t.index ["locale", "champion_id"], name: "index_champion_translations_on_locale_and_champion_id", unique: true
   end
 
   create_table "champions", force: :cascade do |t|
@@ -55,5 +55,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_165555) do
     t.index ["key"], name: "index_champions_on_key", unique: true
   end
 
+  create_table "statistics", force: :cascade do |t|
+    t.integer "tier"
+    t.integer "position"
+    t.float "win_rate"
+    t.float "pick_rate"
+    t.float "performance"
+    t.string "primary_role"
+    t.string "secondary_role"
+    t.integer "kill"
+    t.integer "death"
+    t.integer "assist"
+    t.integer "period"
+    t.integer "region"
+    t.bigint "champion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["champion_id"], name: "index_statistics_on_champion_id"
+    t.index ["tier", "position", "region", "period", "champion_id"], name: "statistics_uniqueness_constraint_index", unique: true
+  end
+
   add_foreign_key "champion_translations", "champions"
+  add_foreign_key "statistics", "champions"
 end
