@@ -1,0 +1,15 @@
+pt-BR:
+  home:
+    title: O que eu devo pickar?
+    subtitle: Talvez você esteja se perguntando se é uma boa ideia mudar seu pick. Talvez você já se sinta completamente conectado a um campeão em particular. Ou talvez você simplesmente não tenha ideia no que deveria focar. Infelizmente, o meta muda quase todos os dias. Mas, não se preocupe, posso te recomendar o melhor pick do momento de acordo com suas preferencias! (pelo menos por hoje).
+    next_button: Vamos descobrir
+  navbar:
+    home: Início
+    recommendations: Recomendações
+    champions: Campeões
+    champion_name: nome do campeão
+    search: Buscar
+    english_lang: Inglês
+    spanish_lang: Espanhol
+    portuguese_lang: Português
+    language: Idioma

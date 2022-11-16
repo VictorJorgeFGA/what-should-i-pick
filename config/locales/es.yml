@@ -1,0 +1,15 @@
+es:
+  home:
+    title: ¿Qué debo escoger?
+    subtitle: Tal vez te estés preguntando si es una buena idea cambiar tu selección. Tal vez ya estés completamente conectado con un campeón en particular. O tal vez simplemente no tienes idea de en qué deberías concentrarte. Desafortunadamente, el meta del juego cambia casi todos los días. Pero no te preocupes, ¡puedo recomendarte la mejor opción de acuerdo a tus preferencias ahora mismo! (Al menos por hoy).
+    next_button: Vamos a averiguar
+  navbar:
+    home: Hogar
+    recommendations: recomendaciones
+    champions: campeones
+    champion_name: nombre del campeón
+    search: Búsqueda
+    english_lang: Inglés
+    spanish_lang: Español
+    portuguese_lang: Portugués
+    language: Idioma
