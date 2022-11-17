@@ -1,0 +1,13 @@
+<div class="container-sm v-stack">
+    <% @champions.each do |champion| %>
+        <div class="container-fluid border border-primary border-opacity-25">
+            <h1 class="display-3 text-light"><%= champion.name %></h1>
+            <div class="d-flex align-items-center">
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/#{champion.name_id}.png", class: 'mx-2', size: 120 %>
+                <section class="lead text-light mx-2">
+                    <%= champion.lore %>
+                </section>
+            </div>
+        </div>
+    <% end %>
+</div>

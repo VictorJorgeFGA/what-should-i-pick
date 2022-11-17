@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top nav-pills navbar-expand-lg navbar-dark bg-indigo-900">
+<nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-indigo-900">
   <div class="container-sm">
     <a class="navbar-brand mx-4" href="<%= root_path %>">
       <%= image_tag 'logo.svg' %>
@@ -6,38 +6,38 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse mx-4 my-2" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item mx-1">
-          <%= link_to t('navbar.home'), root_path, class: "nav-link text-uppercase fw-bold #{'active' if current_page? root_path}" %>
+          <%= link_to t('navbar.home'), root_path, class: "nav-link text-uppercase text-center fw-bold #{'active' if current_page? root_path}" %>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link text-uppercase fw-bold" href="#"><%= t('navbar.recommendations') %></a>
+          <a class="nav-link text-uppercase text-center fw-bold" href="#"><%= t('navbar.recommendations') %></a>
         </li>
         <li class="nav-item mx-1">
-          <%= link_to t('navbar.champions'), champions_path, class: "nav-link text-uppercase fw-bold #{'active' if current_page? champions_path}" %>
+          <%= link_to t('navbar.champions'), champions_path, class: "nav-link text-uppercase text-center fw-bold #{'active' if current_page? champions_path}" %>
         </li>
         <div class="nav-item dropdown-center">
-          <a class="nav-link text-uppercase fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          <a class="nav-link text-uppercase text-center fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
             <span class="me-2"><%= t('navbar.language') %></span>
             <%= image_tag flag_file_name_according_to_i18n, width: 20, alt: I18n.locale.to_s.upcase, class: 'text-align-center' %>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" data-controller="languagepicker">
             <li>
               <a class="dropdown-item text-uppercase fw-bold <%= 'active' if I18n.locale == :en %>" href="<%= url_for(controller: 'application', action: 'change_user_language', user_lang: 'en') %>" data-action="click->languagepicker#change">
-                <%= image_tag "united-kingdom.png", width: 32, alt: 'EN' %>
+                <%= image_tag "united-kingdom.png", width: 20, alt: 'EN' %>
                 <span class="ms-2"><%= t('navbar.english_lang') %></span>
               </a>
             </li>
             <li>
               <a class="dropdown-item text-uppercase fw-bold <%= 'active' if I18n.locale == :es %>" href="<%= url_for(controller: 'application', action: 'change_user_language', user_lang: 'es') %>" data-action="click->languagepicker#change">
-                <%= image_tag "spain.png", width: 32, alt: 'ES' %>
+                <%= image_tag "spain.png", width: 20, alt: 'ES' %>
                 <span class="ms-2"><%= t('navbar.spanish_lang') %></span>
               </a>
             </li>
             <li>
               <a class="dropdown-item text-uppercase fw-bold <%= 'active' if I18n.locale == :'pt-BR' %>" href="<%= url_for(controller: 'application', action: 'change_user_language', user_lang: 'pt-BR') %>" data-action="click->languagepicker#change">
-                <%= image_tag "brazil.png", width: 32, alt: 'PT-BR' %>
+                <%= image_tag "brazil.png", width: 20, alt: 'PT-BR' %>
                 <span class="ms-2"><%= t('navbar.portuguese_lang') %></span>
               </a>
             </li>
