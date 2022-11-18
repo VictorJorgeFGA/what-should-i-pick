@@ -194,4 +194,11 @@ $danger:    map-get($colors, red-600);
 $body-bg:    $dark;
 $body-color: $light;
 
+$list-group-color:                  $light;
+$list-group-bg:                     map-get($colors, indigo-900); //#110720;
+$list-group-border-color:           rgba($dark, .9);
+$list-group-border-width:           2px;
+$list-group-hover-bg:               $secondary;
+$list-group-action-hover-color:     #FFF;
+
 @import "bootstrap";

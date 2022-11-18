@@ -13,3 +13,16 @@ en:
     spanish_lang: Spanish
     portuguese_lang: Portuguese
     language: Language
+  champion:
+    champion: Champion
+    main_position: Main position
+    performance_status: Performance
+    win_rate: Win rate
+    pick_rate: Pick rate
+  statistic:
+    label:
+      outstanding: outstanding
+      good: good
+      ok: ok
+      poor: poor
+

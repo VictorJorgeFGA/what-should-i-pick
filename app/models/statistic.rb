@@ -86,4 +86,8 @@ class Statistic < ApplicationRecord
     super(value)
     update_performance_value
   end
+
+  def self.is_a_valid_tier?(tier)
+    tiers.keys.include?(tier.to_s)
+  end
 end

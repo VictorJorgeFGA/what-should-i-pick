@@ -1,13 +1,69 @@
-<div class="container-sm v-stack">
-    <% @champions.each do |champion| %>
-        <div class="container-fluid border border-primary border-opacity-25">
-            <h1 class="display-3 text-light"><%= champion.name %></h1>
-            <div class="d-flex align-items-center">
-                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/#{champion.name_id}.png", class: 'mx-2', size: 120 %>
-                <section class="lead text-light mx-2">
-                    <%= champion.lore %>
-                </section>
-            </div>
-        </div>
-    <% end %>
+<div class="container-fluid px-0 bg-dark">
+    <div class="container-sm col-7 py-1 list-group justify-content-center list-group-horizontal">
+        <table class="table table-dark">
+            <thead>
+                <th class="text-center" scope="col">Tier</th>
+                <th class="text-center" scope="col">Position</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center" scope="row">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle col-7" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <%= @tier %>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle col-7" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <%= @tier %>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-sm">
+        <table class="table table-striped table-dark table-hover">
+            <thead>
+                <th scope="col"><span class="small fw-lighter">#</span></th>
+                <th scope="col"><%= t('champion.champion') %></th>
+                <th scope="col"><%= t('champion.main_position')%></th>
+                <th scope="col"><%= t('champion.performance_status') %></th>
+                <th scope="col"><%= t('champion.win_rate')%></th>
+                <th scope="col"><%= t('champion.pick_rate') %></th>
+            </thead>
+            <tbody>
+                <% @champions.each_with_index do |champion, idx| %>
+                    <tr>
+                        <th scope="row"><span class="small fw-lighter"><%= idx+1 %></span></th>
+                        <td>
+                            <a class="d-flex align-items-center text-decoration-none text-light" href="<%= champion_path(champion) %>">
+                                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/#{champion.image_full}", class: 'mx-2 rounded-circle', size: 38 %>
+                                <%= champion.name %>
+                            </a>
+                        </th>
+                        <td class="font-monospace text-uppercase small"><%= champion.most_frequent_statistic_for(tier: @tier).position %></td>
+                        <td><%= render 'champions/performance_badge', statistic: champion.most_frequent_statistic_for(tier: @tier) %></td>
+                        <td><span class="small"><%= number_to_percentage(champion.most_frequent_statistic_for(tier: @tier).win_rate * 100.0, precision: 2) %></span></td>
+                        <td><span class="small"><%= number_to_percentage(champion.most_frequent_statistic_for(tier: @tier).pick_rate * 100.0, precision: 2) %></span></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 </div>

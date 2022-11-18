@@ -180,6 +180,7 @@ all_champions.each do |champion|
   champ = Champion.create(
     {
       name: data['name'],
+      name_id: data['id'],
       key: data['key'],
       title: data['title'],
       image_full: data['image']['full'],

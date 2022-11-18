@@ -13,3 +13,15 @@ es:
     spanish_lang: Español
     portuguese_lang: Portugués
     language: Idioma
+  champion:
+    champion: Campeón
+    main_position: Posición principal
+    performance_status: Actuación
+    win_rate: Ratio de victorias
+    pick_rate: Ratio de selección
+  statistic:
+    label:
+      outstanding: sobresaliente
+      good: bueno
+      ok: ok
+      poor: malo
