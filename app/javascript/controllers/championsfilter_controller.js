@@ -10,6 +10,6 @@ export default class extends Controller {
     form_input_target.value = element.getAttribute('value');
     let form = document.getElementById('filter-form');
 
-    form.submit();
+    form.requestSubmit();
   }
 }

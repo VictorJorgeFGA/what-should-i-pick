@@ -183,6 +183,10 @@ a#{$parent} {
     background: linear-gradient(180deg, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.8) 45%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.4) 100%);
 }
 
+.shade-bg {
+    background: rgba(black, .7);
+}
+
 $primary:   map-get($colors, indigo-500);
 $secondary: map-get($colors, indigo-400);
 $dark:      map-get($colors, w-purple-800);

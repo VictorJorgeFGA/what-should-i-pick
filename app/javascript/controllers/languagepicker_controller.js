@@ -10,7 +10,7 @@ export default class extends Controller {
     xhr.open("POST", pressed_button_href, true);
     xhr.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
     xhr.onreadystatechange = function () {
-        location.reload();
+      Turbo.visit(document.location.pathname);
     }
     xhr.send();
   }
