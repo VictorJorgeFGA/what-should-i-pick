@@ -1,0 +1,87 @@
+<div class="container-fluid px-0 bg-dark">
+    <div class="container-sm">
+    <table class="table table-striped table-dark">
+        <thead>
+            <th scope="col"></th>
+        <thead>
+        <tbody>
+            <td scope="col">
+                <div class="container-sm py-1">
+                    <form id="filter-form" action="<%= champions_path %>" method="get">
+                        <input type="hidden" name="region" id="form-region" value="<%= @region %>">
+                        <input type="hidden" name="tier" id="form-tier" value="<%= @tier %>">
+                        <input type="hidden" name="position" id="form-position" value="<%= @position %>">
+                        <input type="hidden" name="sort" id="form-sort" value="<%= "#{@sort.keys.first.to_s}-#{@sort.values.first.to_s}" %>">
+                    </form>
+                    <div class="d-flex justify-content-around">
+                        <div class="hstack gap-3">
+                            <div class="col">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-uppercase fw-bold"><%= translated_region @region %></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" data-controller="championsfilter">
+                                        <% available_regions.each do |region| %>
+                                            <li>
+                                                <a class="dropdown-item <%= 'active' if @region == region %>" href="#" data-action="click->championsfilter#update_filters" value="<%= region %>" input-target="form-region">
+                                                    <span class="text-uppercase small"><%= translated_region region %></span>
+                                                </a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-uppercase fw-bold"><%= translated_tier @tier %></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" data-controller="championsfilter">
+                                        <% available_tiers.each do |tier| %>
+                                            <li>
+                                                <a class="dropdown-item <%= 'active' if @tier == tier %>" href="#" data-action="click->championsfilter#update_filters" value="<%= tier %>" input-target="form-tier">
+                                                    <span class="text-uppercase small"><%= translated_tier tier %></span>
+                                                </a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="roles" data-controller="championsfilter">
+                            <% available_positions.each do |position| %>
+                                <button class="btn btn-sm <%= @position == position ? 'btn-secondary' : 'btn-outline-secondary' %>" data-action="click->championsfilter#update_filters" value="<%= position %>" input-target="form-position">
+                                    <span class="text-uppercase fw-bold"><%= translated_position position %></span>
+                                </button>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tbody>
+    </table>
+    </div>
+    <div class="container-sm">
+        <table class="table table-striped table-dark table-hover">
+            <thead data-controller="championssort">
+                <th scope="col"><span class="small fw-lighter ms-2">#</span></th>
+                <th scope="col text-capitalize">
+                    <%= render 'champions/filter_table_column', field: 'name_id', column_title: 'champion' %>
+                </th>
+                <th scope="col text-capitalize">
+                    <%= t('champion.position')%>
+                </th>
+                <th scope="col text-capitalize">
+                    <%= render 'champions/filter_table_column', field: 'win_rate', column_title: 'win_rate' %>
+                </th>
+                <th scope="col text-capitalize">
+                    <%= render 'champions/filter_table_column', field: 'pick_rate', column_title: 'pick_rate' %>
+                </th>
+            </thead>
+            <tbody class="align-middle">
+                <%= render('champions/champion_table', champions: @champions, tier: @tier, region: @region, position: @position, primary_role: 'all') %>
+            </tbody>
+        </table>
+    </div>
+</div>

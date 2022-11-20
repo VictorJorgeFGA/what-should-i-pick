@@ -67,7 +67,7 @@ class Statistic < ApplicationRecord
   }
 
   def update_performance_value
-    self.performance = (win_rate.to_f - 0.5) * pick_rate.to_f
+    self.performance = (win_rate.to_f - 0.5) * pick_rate.to_f * 1000.0
   end
 
   def update_roles
@@ -85,5 +85,48 @@ class Statistic < ApplicationRecord
   def pick_rate=(value)
     super(value)
     update_performance_value
+  end
+
+  def self.a_valid_tier?(tier)
+    tiers.keys.include?(tier.to_s)
+  end
+
+  def self.a_valid_region?(region)
+    regions.keys.include?(region.to_s)
+  end
+
+  def self.a_valid_position?(position)
+    positions.keys.include?(position.to_s) || position.to_s == 'all'
+  end
+
+  def self.calculate_performance_percentage_score_for(performance, tier:, region:, position:, primary_role:)
+    ref_values = performance_reference_values_for(tier:, region:, position:, primary_role:)
+    calculate_performance_percentage_score(performance, *ref_values)
+  end
+
+  def self.performance_reference_values_for(tier:, region:, position:, primary_role:)
+    Rails.cache.fetch(
+      "#{Time.zone.today.to_fs(:iso8601)}/prvf/#{tier}/#{region}/#{position}/#{primary_role}",
+      expires_in: 12.hours
+    ) do
+      where_args = { tier:, region: }
+      where_args[:position] = position if position != 'all'
+      where_args[:primary_role] = primary_role if primary_role != 'all'
+      [
+        Statistic.where(where_args).minimum(:performance),
+        Statistic.where(where_args).average(:performance),
+        Statistic.where(where_args).maximum(:performance)
+      ]
+    end
+  end
+
+  def self.calculate_performance_percentage_score(performance, min_performance, avg_performance, max_performance)
+    if performance >= avg_performance
+      percentage_score = ((performance - avg_performance) / (max_performance - avg_performance))
+      [percentage_score, :above_the_average]
+    else
+      percentage_score = 1 - ((performance - min_performance) / (avg_performance - min_performance))
+      [percentage_score, :below_the_average]
+    end
   end
 end

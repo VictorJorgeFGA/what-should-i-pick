@@ -1,5 +1,6 @@
 Aatrox:
   name: Aatrox
+  name_id: Aatrox
   key: 266
   title: the Darkin Blade
   image_full: Aatrox.png
@@ -25,6 +26,7 @@ Aatrox:
 
 Ahri:
   name: Ahri
+  name_id: Ahri
   key: 103
   title: the Nine-Tailed Fox
   image_full: Ahri.png
@@ -50,6 +52,7 @@ Ahri:
 
 Akali:
   name: Akali
+  name_id: Akali
   key: 84
   title: the Rogue Assassin
   image_full: Akali.png

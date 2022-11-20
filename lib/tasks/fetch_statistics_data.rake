@@ -23,9 +23,8 @@ namespace :op_gg_api do
               assist: stats['assist'].to_i
             }
           )
-          unless statistic.persisted?
-            puts "Failed to fill #{champion.name} with data. Error: #{statistic.errors.full_messages.join('. ')}"
-          end
+
+          puts "Failed to fill #{champion.name} with data. Error: #{statistic.errors.full_messages.join('. ')}" unless statistic.persisted?
         end
       end
     end

@@ -136,134 +136,53 @@ class StatisticTest < ActiveSupport::TestCase
       }
     )
 
-    expected_value = (0.52 - 0.5) * 0.1
+    expected_value = (0.52 - 0.5) * 0.1 * 1000.0
     assert_equal expected_value, statistic.performance
 
     statistic.win_rate = 0.53
-    expected_value = (0.53 - 0.5) * 0.1
+    expected_value = (0.53 - 0.5) * 0.1 * 1000.0
     assert_equal expected_value, statistic.performance
 
     statistic.pick_rate = 0.2
-    expected_value = (0.53 - 0.5) * 0.2
+    expected_value = (0.53 - 0.5) * 0.2 * 1000.0
     assert_equal expected_value, statistic.performance
   end
 
-  test 'should return the statistic with the highest win_rate and performance for a specific context' do
-    champion = champions(:Aatrox)
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.5271,
-        pick_rate: 0.1342,
-        period: 'day',
-        region: 'global'
-      }
-    )
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.5271,
-        pick_rate: 0.9042,
-        period: 'day',
-        region: 'global'
-      }
-    )
+  test 'should valid tiers correctly' do
+    valid = ['iron', :bronze, 'silver', :gold, 'platinum', 'diamond', 'master', 'grandmaster', 'challenger', 'all']
+    invalid = ['hey', 1, nil, :invalid_tier]
 
-    champion = champions(:Ahri)
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.5141,
-        pick_rate: 0.2663,
-        period: 'day',
-        region: 'global'
-      }
-    )
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.9041,
-        pick_rate: 0.2663,
-        period: 'day',
-        region: 'na'
-      }
-    )
+    valid.each do |tier|
+      assert Statistic.a_valid_tier?(tier), tier
+    end
+    invalid.each do |tier|
+      assert_not Statistic.a_valid_tier?(tier), tier
+    end
+  end
 
-    champion = champions(:Akali)
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.4953,
-        pick_rate: 0.2149,
-        period: 'day',
-        region: 'global'
-      }
-    )
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.4953,
-        pick_rate: 1.0,
-        period: 'day',
-        region: 'na'
-      }
-    )
-    champion = champions(:Akshan)
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.4979,
-        pick_rate: 0.7049,
-        period: 'day',
-        region: 'global'
-      }
-    )
-    champion.statistics.create(
-      {
-        tier: 'gold',
-        position: 'top',
-        win_rate: 0.4979,
-        pick_rate: 0.001,
-        period: 'day',
-        region: 'na'
-      }
-    )
-    assert_equal(
-      'Aatrox',
-      Statistic.with_highest_win_rate_for(
-        role: ['mage', 'fighter', 'marksman', 'assassin'],
-        tier: 'gold',
-        position: 'top',
-        period: 'day',
-        region: 'global'
-      ).first.champion.name
-    )
-    assert_equal(
-      'Ahri',
-      Statistic.with_highest_performance_for(
-        role: ['mage', 'fighter', 'marksman', 'assassin'],
-        tier: 'gold',
-        position: 'top',
-        period: 'day',
-        region: 'global'
-      ).first.champion.name
-    )
-    assert_equal(
-      'Ahri',
-      Statistic.with_highest_performance_for(
-        role: ['assassin'],
-        tier: 'gold',
-        position: 'top',
-        period: 'day',
-        region: 'global'
-      ).first.champion.name
-    )
+  test 'should valid positions correctly' do
+    valid = ['top', :jungle, 'mid', 'adc', :support]
+    invalid = ['Top', 1, nil, :invalid_tier]
+
+    valid.each do |position|
+      assert Statistic.a_valid_position?(position), position
+    end
+
+    invalid.each do |position|
+      assert_not Statistic.a_valid_position?(position), position
+    end
+  end
+
+  test 'should valid regions correctly' do
+    valid = %w[global na euw eune oce kr jp br las lan ru tr] + %i[global na euw eune oce kr jp br las lan ru tr]
+    invalid = ['amdasod', 'opa', 1, false, nil]
+
+    valid.each do |region|
+      assert Statistic.a_valid_region?(region), region
+    end
+
+    invalid.each do |region|
+      assert_not Statistic.a_valid_region?(region), region
+    end
   end
 end

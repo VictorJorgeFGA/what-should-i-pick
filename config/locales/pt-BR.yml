@@ -13,3 +13,68 @@ pt-BR:
     spanish_lang: Espanhol
     portuguese_lang: Português
     language: Idioma
+  champion:
+    champion: Campeão
+    position: Posição
+    performance_status: Desempenho
+    win_rate: Taxa de vitória
+    pick_rate: Taxa de escolha
+  statistic:
+    label:
+      winrate:
+        outstanding: excepcional
+        good: bom
+        ok: ok
+        poor: ruim
+        legendary: lendário
+        among_the_best: entre os melhores
+        very_good: muito bom
+        not_so_good: não muito bom
+        below_average: abaixo da média
+        among_the_worst: entre os piores
+        terrible: horrível
+        garbage: lixo
+        acceptable: aceitável
+      pickrate:
+        fever: febre
+        super_popular: super popular
+        popular: popular
+        frequent: frequente
+        common: comum
+        sporadic: esporádico
+        forgotten: esquecido
+        rare: raro
+        very_rare: muito raro
+        odd: exótico
+  positions:
+    top: Topo
+    jungle: Selva
+    mid: Meio
+    adc: Atirador
+    support: Suporte
+    all: Todas as posições
+  tiers:
+    iron: Ferro
+    bronze: Bronze
+    silver: Prata
+    gold: Ouro
+    platinum: Platina
+    diamond: Diamante
+    master: Mestre
+    grandmaster: Grão-mestre
+    challenger: Desafiante
+    all: Todos os Elos
+  regions:
+    global: Global
+    na: America do Norte
+    euw: Europa Oeste
+    eune: Europa Nórdica e Oriental
+    oce: Oceania
+    kr: Coréia do Sul
+    jp: Japão
+    br: Brasil
+    las: América Latina do Sul
+    lan: América Latina do Norte
+    ru: Russia
+    tr: Turquia
+

@@ -1,0 +1,6 @@
+<a href="#" class="text-decoration-none fw-<%= @sort[field] ? 'bolder' : 'bold' %> text-white" data-action="click->championssort#update_sort" value="<%= field %>" data-sort-triggered="<%= @sort[field].present? %>" data-sort-value="<%= @sort[field] || 'desc' %>">
+    <%= t("champion.#{column_title}") %>
+    <% if @sort[field] %>
+        <i class="fa fa-solid fa-angle-<%= @sort[field] == 'asc' ? 'up' : 'down' %> fw-bold"></i>
+    <% end %>
+</a>
