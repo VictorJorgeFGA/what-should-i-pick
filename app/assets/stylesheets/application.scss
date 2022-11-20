@@ -184,7 +184,7 @@ a#{$parent} {
 }
 
 $primary:   map-get($colors, indigo-500);
-$secondary: map-get($colors, indigo-600);
+$secondary: map-get($colors, indigo-400);
 $dark:      map-get($colors, w-purple-800);
 $light:     map-get($colors, w-purple-200);
 $success:   map-get($colors, green-600);
@@ -201,4 +201,9 @@ $list-group-border-width:           2px;
 $list-group-hover-bg:               $secondary;
 $list-group-action-hover-color:     #FFF;
 
+.fa {
+    font-family: 'FontAwesome';
+}
 @import "bootstrap";
+@import "font-awesome";
+

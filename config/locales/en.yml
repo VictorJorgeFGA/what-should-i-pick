@@ -15,14 +15,65 @@ en:
     language: Language
   champion:
     champion: Champion
-    main_position: Main position
+    position: Position
     performance_status: Performance
     win_rate: Win rate
     pick_rate: Pick rate
   statistic:
     label:
-      outstanding: outstanding
-      good: good
-      ok: ok
-      poor: poor
-
+      winrate:
+        outstanding: outstanding
+        good: good
+        ok: ok
+        poor: poor
+        legendary: legendary
+        among_the_best: among the best
+        very_good: very good
+        not_so_good: not so good
+        below_average: below average
+        among_the_worst: among the worst
+        terrible: terrible
+        garbage: garbage
+        acceptable: acceptable
+      pickrate:
+        fever: fever
+        super_popular: super popular
+        popular: popular
+        frequent: frequent
+        common: common
+        sporadic: sporadic
+        forgotten: forgotten
+        rare: rare
+        very_rare: very rare
+        odd: odd
+  positions:
+    top: Top
+    jungle: Jungle
+    mid: Mid
+    adc: Adc
+    support: Support
+    all: All positions
+  tiers:
+    iron: Iron
+    bronze: Bronze
+    silver: Silver
+    gold: Gold
+    platinum: Platinum
+    diamond: Diamond
+    master: Master
+    grandmaster: Grandmaster
+    challenger: Challenger
+    all: All tiers
+  regions:
+    global: Global
+    na: North America
+    euw: Europe West
+    eune: Europe Nordic & East
+    oce: Oceania
+    kr: South Korea
+    jp: Japan
+    br: Brazil
+    las: Latin America South
+    lan: Latin America North
+    ru: Russia
+    tr: Turkey

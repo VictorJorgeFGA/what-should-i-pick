@@ -1,0 +1,32 @@
+<% champions.each_with_index do |champion, idx| %>
+    <tr id="champion-<%= idx + 1 %>" name="<%= champion.name_id %>">
+        <th scope="row"><span class="small fw-lighter ms-2"><%= idx+1 %></span></th>
+        <td>
+            <a class="d-flex align-items-center text-decoration-none text-light" href="<%= champion_path(champion) %>">
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/#{champion.image_full}", class: 'mx-2 rounded-circle', size: 38 %>
+                <%= champion.name %>
+            </a>
+        </th>
+        <td class="font-monospace text-uppercase small"><%= translated_position champion.most_relevant_statistic.position %></td>
+        <td>
+            <div class="hstack gap-2">
+                <span class="small" style="width: 3.5em;">
+                    <%= number_to_percentage(champion.most_relevant_statistic.win_rate * 100.0, precision: 2) %>
+                </span>
+                <div class="vr"></div>
+                <span class="badge bg-<%= winrate_badge_class_for(champion.most_relevant_statistic.win_rate) %>">
+                    <%= winrate_badge_text_for(champion.most_relevant_statistic.win_rate) %>
+                </span>
+            </div>
+        </td>
+        <td>
+            <div class="hstack gap-2">
+                <span class="small" style="width: 3.5em;"><%= number_to_percentage(champion.most_relevant_statistic.pick_rate * 100.0, precision: 2) %></span>
+                <div class="vr"></div>
+                <span class="badge bg-<%= pickrate_badge_class_for(champion.most_relevant_statistic.pick_rate) %>">
+                    <%= pickrate_badge_text_for(champion.most_relevant_statistic.pick_rate) %>
+                </span>
+            </div>
+        </td>
+    </tr>
+<% end %>

@@ -96,4 +96,159 @@ class ChampionTest < ActiveSupport::TestCase
       assert_equal 'Nuevo titulo', champion.title
     end
   end
+
+  test 'should filter champions correctly' do
+    aatrox = champions(:Aatrox)
+    stat1 = aatrox.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'top',
+        win_rate: 0.55,
+        pick_rate: 0.77,
+        primary_role: 'fighter',
+        secondary_role: 'tank',
+        region: 'br',
+        period: 'month'
+      }
+    )
+    stat2 = aatrox.statistics.create(
+      {
+        tier: 'silver',
+        position: 'top',
+        win_rate: 0.55,
+        pick_rate: 0.77,
+        primary_role: 'fighter',
+        secondary_role: 'tank',
+        region: 'br',
+        period: 'month'
+      }
+    )
+    stat3 = aatrox.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'top',
+        win_rate: 0.55,
+        pick_rate: 0.77,
+        primary_role: 'fighter',
+        secondary_role: 'tank',
+        region: 'global',
+        period: 'month'
+      }
+    )
+    aatrox.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'mid',
+        win_rate: 0.70,
+        pick_rate: 0.01,
+        primary_role: 'fighter',
+        secondary_role: 'tank',
+        region: 'br',
+        period: 'month'
+      }
+    )
+
+    all_champions = Champion.all_champions_filtered_by(tier: 'bronze', position: 'top', region: 'br')
+    filtered_champion = all_champions.first
+
+    assert_equal [aatrox], all_champions
+    assert_equal stat1, filtered_champion.most_relevant_statistic
+
+    all_champions = Champion.all_champions_filtered_by(tier: 'bronze', position: 'all', region: 'br')
+    filtered_champion = all_champions.first
+
+    assert_equal [aatrox], all_champions
+    assert_equal stat1, filtered_champion.most_relevant_statistic
+
+    all_champions = Champion.all_champions_filtered_by(tier: 'silver', position: 'top', region: 'br')
+    filtered_champion = all_champions.first
+
+    assert_equal [aatrox], all_champions
+    assert_equal stat2, filtered_champion.most_relevant_statistic
+
+    all_champions = Champion.all_champions_filtered_by(tier: 'bronze', position: 'top', region: 'global')
+    filtered_champion = all_champions.first
+
+    assert_equal [aatrox], all_champions
+    assert_equal stat3, filtered_champion.most_relevant_statistic
+  end
+
+  test 'should sort sort champions correctly' do
+    aatrox = champions(:Aatrox)
+    aatrox.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'top',
+        win_rate: 0.55,
+        pick_rate: 0.4,
+        primary_role: 'fighter',
+        secondary_role: 'tank',
+        region: 'br',
+        period: 'month'
+      }
+    )
+    aatrox.most_relevant_statistic = aatrox.statistics.first
+
+    ahri = champions(:Ahri)
+    ahri.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'top',
+        win_rate: 0.56,
+        pick_rate: 0.3,
+        primary_role: 'mage',
+        secondary_role: 'assassin',
+        region: 'br',
+        period: 'month'
+      }
+    )
+    ahri.most_relevant_statistic = ahri.statistics.first
+
+    akali = champions(:Akali)
+    akali.statistics.create(
+      {
+        tier: 'bronze',
+        position: 'top',
+        win_rate: 0.57,
+        pick_rate: 0.2,
+        primary_role: 'assassin',
+        secondary_role: 'mage',
+        region: 'br',
+        period: 'month'
+      }
+    )
+    akali.most_relevant_statistic = akali.statistics.first
+
+    assert_equal(
+      [aatrox, ahri, akali],
+      Champion.sort_champions_array_by([aatrox, ahri, akali], field: 'win_rate', sort_type: 'asc'),
+      'win_rate asc'
+    )
+    assert_equal(
+      [akali, ahri, aatrox],
+      Champion.sort_champions_array_by([akali, ahri, aatrox], field: 'win_rate', sort_type: 'desc'),
+      'win_rate desc'
+    )
+    assert_equal(
+      [aatrox, ahri, akali],
+      Champion.sort_champions_array_by([aatrox, ahri, akali], field: 'name_id', sort_type: 'asc'),
+      'name_id asc'
+    )
+    assert_equal(
+      [akali, ahri, aatrox],
+      Champion.sort_champions_array_by([akali, ahri, aatrox], field: 'name_id', sort_type: 'desc'),
+      'name_id desc'
+    )
+
+    assert_equal(
+      [akali, ahri, aatrox],
+      Champion.sort_champions_array_by([aatrox, ahri, akali], field: 'pick_rate', sort_type: 'asc'),
+      'pick_rate asc'
+    )
+    assert_equal(
+      [aatrox, ahri, akali],
+      Champion.sort_champions_array_by([akali, ahri, aatrox], field: 'pick_rate', sort_type: 'desc'),
+      'pick_rate desc'
+    )
+  end
 end

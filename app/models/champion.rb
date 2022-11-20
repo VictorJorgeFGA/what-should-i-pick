@@ -6,6 +6,10 @@ class Champion < ApplicationRecord
 
   validates :key, uniqueness: true
 
+  attr_accessor :most_relevant_statistic
+
+  delegate :win_rate, :pick_rate, :performance, to: :most_relevant_statistic
+
   def self.translatable_fields
     ChampionTranslation.column_names - %w[id locale champion_id created_at updated_at]
   end
@@ -16,51 +20,33 @@ class Champion < ApplicationRecord
 
   include Translatable
 
-  def best_win_rate_statistic
-    @best_win_rate_stat ||=
-    statistics.sort do |a, b|
-      if a.win_rate < b.win_rate
-        -1
-      elsif a.win_rate == b.win_rate
-        0
-      else
-        1
-      end
-    end.last
+  def self.all_champions
+    Rails.cache.fetch("#{Time.zone.today.to_fs(:iso8601)}/all_champions", expires_in: 12.hours) do
+      Champion.all
+    end
   end
 
-  def best_performance_statistic
-    @best_win_rate_stat ||=
-    statistics.sort do |a, b|
-      if a.performance < b.performance
-        -1
-      elsif a.performance == b.performance
-        0
-      else
-        1
-      end
-    end.last
+  def self.most_relevant_statistic_for(champion, tier:, region:, position:)
+    Rails.cache.fetch("#{Time.zone.today.to_fs(:iso8601)}/#{champion.key}/#{tier}/#{region}/#{position}", expires_in: 12.hours) do
+      champion.statistics.where(tier:, region:, position: position == 'all' ? Statistic.positions.keys : position).order(pick_rate: :desc).first
+    end
   end
 
-  def most_frequent_statistic_for(tier:)
-    instance_variable_name = "@most_frequent_statistic_for_#{tier.to_s}"
-    if instance_variable_defined?(instance_variable_name)
-      instance_variable_get(instance_variable_name)
+  def self.all_champions_filtered_by(tier:, region:, position:)
+    Champion.all_champions.select do |champion|
+      champion.most_relevant_statistic = Champion.most_relevant_statistic_for(champion, tier:, region:, position:)
+      champion.most_relevant_statistic.present?
+    end
+  end
+
+  def self.sort_champions_array_by(champions, field:, sort_type:)
+    champions = champions.sort do |c1, c2|
+      c1.send(field) <=> c2.send(field)
+    end
+    if sort_type.to_s == 'asc'
+      champions
     else
-      stats = statistics.select do |stat|
-        stat.tier.to_s == tier.to_s
-      end
-
-      stats = stats.sort do |a, b|
-        if a.pick_rate < b.pick_rate
-          -1
-        elsif a.pick_rate == b.pick_rate
-          0
-        else
-          1
-        end
-      end
-      instance_variable_set(instance_variable_name, stats.last)
+      champions.reverse
     end
   end
 end
