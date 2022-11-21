@@ -53,6 +53,23 @@ es:
     adc: Inferior
     support: Apoyo
     all: Todas las posiciones
+  lanes:
+    preffered_lane_question: ¿Con qué calle te identificas más?
+    top:
+      name: Superior
+      description: Los campeones de la calle superior son los luchadores solitarios por excelencia. Su trabajo es proteger su calle y centrarse en eliminar a las mayores amenazas del equipo enemigo.
+    jungle:
+      name: Jungla
+      description: Los junglas dedican su partida a la caza. Se sirven de su destreza y sigilo para saltar de una calle a otra, se encargan de vigilar los monstruos neutrales más importantes y atacan en el momento preciso cuando un enemigo baja la guardia.
+    mid:
+      name: Central
+      description: Los campeones de la calle central cuentan con un gran daño explosivo y funcionan muy bien tanto de forma independiente como en equipo. Para ellos, el combate es una peligrosa danza que consiste en encontrar el momento idóneo para acabar con su rival.
+    bot:
+      name: ADC
+      description: Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.
+    support:
+      name: Apoyo
+      description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
   tiers:
     iron: Iron
     bronze: Bronce

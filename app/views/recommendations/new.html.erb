@@ -1,44 +1,83 @@
-<div class="container-fluid px-0" style="background-image: url(<%= image_url 'Camille_2.jpg' %>);background-size: cover;height: 100vh;">
-    <div class="container-fluid shade-bg">
-        <div class="container-sm vh-100 bg-dark d-flex align-items-center justify-content-center">
-            <div class="container-sm v-stack gap-5">
-                <h1>Qual seu elo?</h1>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                    <label class="btn btn-outline-secondary vstack" for="btnradio1">
-                        Bronze
-                    </label>
+<div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    <div class="container-fluid top-gradient px-0">
+        <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="typewriter my-5">
+                <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
+            </div>
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Garen_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
+                                <div class="">
+                                    <%= image_tag 'top_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
+                                </div>
+                                <div class="main-text mx-4 mb-4 ">
+                                    <h1 class="text-center text-decoration-none text-capitalized h2"><%= t('lanes.top.name') %></h1>
+                                    <p class="small"><%= t('lanes.top.description') %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio2">
-                        Silver
-                    </label>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'LeeSin_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
+                                <div class="">
+                                    <%= image_tag 'jungle_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
+                                </div>
+                                <div class="main-text mx-4 mb-4 ">
+                                    <h1 class="text-center text-decoration-none text-capitalized h2"><%= t('lanes.jungle.name') %></h1>
+                                    <p class="small"><%= t('lanes.jungle.description') %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio3">
-                        Gold
-                    </label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio4">
-                        Platinum
-                    </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio5">
-                        Diamond
-                    </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio6">
-                        Master
-                    </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio7">
-                        Grandmaster
-                    </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio8">
-                        Challenger
-                    </label>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Ahri_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
+                                <div class="">
+                                    <%= image_tag 'mid_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
+                                </div>
+                                <div class="main-text mx-4 mb-4 ">
+                                    <h1 class="text-center text-decoration-none text-capitalized h2"><%= t('lanes.mid.name') %></h1>
+                                    <p class="small"><%= t('lanes.mid.description') %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Jhin_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
+                                <div class="">
+                                    <%= image_tag 'bot_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
+                                </div>
+                                <div class="main-text mx-4 mb-4 ">
+                                    <h1 class="text-center text-decoration-none text-capitalized h2"><%= t('lanes.bot.name') %></h1>
+                                    <p class="small"><%= t('lanes.bot.description') %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Blitzcrank_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
+                                <div class="">
+                                    <%= image_tag 'support_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
+                                </div>
+                                <div class="main-text mx-4 mb-4 ">
+                                    <h1 class="text-center text-decoration-none text-capitalized h2"><%= t('lanes.support.name') %></h1>
+                                    <p class="small"><%= t('lanes.support.description') %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

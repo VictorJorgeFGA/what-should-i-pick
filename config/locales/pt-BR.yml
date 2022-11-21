@@ -53,6 +53,23 @@ pt-BR:
     adc: Atirador
     support: Suporte
     all: Todas as posições
+  lanes:
+    preffered_lane_question: Com qual rota você mais se identifica?
+    top:
+      name: Topo
+      description: Campeões na rota superior são os lutadores durões e solitários da equipe. O trabalho deles é proteger a própria rota e focar seu dano nos membros mais fortes da equipe inimiga.
+    jungle:
+      name: Selva
+      description: Caçadores vivem pela caça. Espreitando entre as rotas com furtividade e habilidade, eles ficam atentos aos monstros da selva mais importantes e avançam no momento que o oponente baixar a guarda.
+    mid:
+      name: Meio
+      description: Campeões da rota do meio são aqueles que possuem alto dano explosivo e podem fazer de tudo, sejam sozinhos ou em equipe. Para eles, o combate é uma dança perigosa, e nela devem sempre buscar oportunidades para superar seu oponente.
+    bot:
+      name: ADC
+      description: Campeões da rota inferior são a fonte preciosa de dano de cada equipe e precisam ser protegidos no início de jogo até que acumulem ouro e experiência o suficiente para carregar toda a equipe até a vitória.
+    support:
+      name: Suporte
+      description: Campeões Suporte são os guardiões da equipe. Eles ajudam a manter seus aliados vivos e focam primordialmente em armar abates, protegendo seu parceiro na rota inferior até que fique mais forte.
   tiers:
     iron: Ferro
     bronze: Bronze

@@ -208,6 +208,54 @@ $list-group-action-hover-color:     #FFF;
 .fa {
     font-family: 'FontAwesome';
 }
+
+
 @import "bootstrap";
 @import "font-awesome";
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
 
+// DARK CARDS
+.dark-card {
+    background-color: #1E1828;
+    border-style: solid;
+    border-color: #2D263E;
+    border-width: 2px;
+    min-height: 585px;
+    filter: grayscale(100%);
+}
+
+.position-icon-img {
+    margin-top: -90px;
+    background-color: #1E1828;
+    padding: 20px;
+}
+
+.dark-card:hover {
+    filter: grayscale(0%);
+    transition: 400ms;
+}
+//
+
+// typing effetc
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(110, 107, 116); }
+}
+//

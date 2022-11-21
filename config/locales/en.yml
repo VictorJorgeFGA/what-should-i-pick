@@ -53,6 +53,23 @@ en:
     adc: Adc
     support: Support
     all: All positions
+  lanes:
+    preffered_lane_question: Which lane do you most identify with?
+    top:
+      name: Top
+      description: Champions in top lane are the tough solo fighters of the team. It’s their job to protect their lane and focus on the enemy team’s most powerful members.
+    jungle:
+      name: Jungle
+      description: Junglers live for the hunt. Stalking between lanes with stealth and skill, they keep a close eye on the most important neutral monsters and pounce the moment an opponent lets their guard down.
+    mid:
+      name: Mid
+      description: Mid laners are your high burst damage champions who can do it all—solo and as a team. For them, combat is a dangerous dance where they’re always looking for an opportunity to outplay their opponent.
+    bot:
+      name: Bot
+      description: Bot lane champions are the dynamite of the team. As precious cargo, they need to be protected early on before amassing enough gold and experience to carry the team to victory.
+    support:
+      name: Support
+      description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
   tiers:
     iron: Iron
     bronze: Bronze
