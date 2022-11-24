@@ -220,8 +220,11 @@ $list-group-action-hover-color:     #FFF;
     border-style: solid;
     border-color: #2D263E;
     border-width: 2px;
-    min-height: 585px;
     filter: grayscale(100%);
+}
+
+.champion-card {
+    min-height: 585px;
 }
 
 .position-icon-img {
@@ -242,9 +245,9 @@ $list-group-action-hover-color:     #FFF;
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
+    letter-spacing: .05em; /* Adjust as needed */
     animation:
-    typing 3.5s steps(40, end),
+    typing 2.5s steps(40, end),
     blink-caret .75s step-end infinite;
 }
 

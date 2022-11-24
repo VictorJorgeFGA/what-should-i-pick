@@ -1,5 +1,5 @@
 <div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
-    <div class="container-fluid top-gradient px-0">
+    <div class="container-fluid top-gradient px-0" data-controller="newrecommendationform">
         <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
             <div class="typewriter my-5">
                 <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
@@ -7,8 +7,8 @@
             <div class="container my-3">
                 <div class="row">
                     <div class="col">
-                        <a href="#" class="text-decoration-none text-light">
-                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                        <a href="#choose-elo" class="text-decoration-none text-light" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="top">
+                            <div class="d-flex flex-column align-items-center dark-card champion-card card rounded-4">
                                 <%= image_tag 'Garen_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
                                 <div class="">
                                     <%= image_tag 'top_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="col">
-                        <a href="#" class="text-decoration-none text-light">
-                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                        <a href="#choose-elo" class="text-decoration-none text-light" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="jungle">
+                            <div class="d-flex flex-column align-items-center dark-card champion-card card rounded-4">
                                 <%= image_tag 'LeeSin_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
                                 <div class="">
                                     <%= image_tag 'jungle_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
@@ -37,8 +37,8 @@
                     </div>
 
                     <div class="col">
-                        <a href="#" class="text-decoration-none text-light">
-                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                        <a href="#choose-elo" class="text-decoration-none text-light" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="mid">
+                            <div class="d-flex flex-column align-items-center dark-card champion-card card rounded-4">
                                 <%= image_tag 'Ahri_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
                                 <div class="">
                                     <%= image_tag 'mid_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
@@ -51,8 +51,8 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#" class="text-decoration-none text-light">
-                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                        <a href="#choose-elo" class="text-decoration-none text-light" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="adc">
+                            <div class="d-flex flex-column align-items-center dark-card champion-card card rounded-4">
                                 <%= image_tag 'Jhin_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
                                 <div class="">
                                     <%= image_tag 'bot_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
@@ -65,8 +65,8 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#" class="text-decoration-none text-light">
-                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                        <a href="#choose-elo" class="text-decoration-none text-light" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="support">
+                            <div class="d-flex flex-column align-items-center dark-card champion-card card rounded-4">
                                 <%= image_tag 'Blitzcrank_0.jpg', class: 'rounded-top mb-3 img-fluid' %>
                                 <div class="">
                                     <%= image_tag 'support_icon.svg', class: 'position-icon-img rounded-circle', width: 100 %>
@@ -81,5 +81,123 @@
                 </div>
             </div>
         </div>
+        <div id="choose-elo" class="vh-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="typewriter">
+                <h1><%= t('tiers.current_tier_question') %></h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Iron.png', class: 'img-fluid', width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.iron') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Bronze.png', class: 'img-fluid', width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.bronze') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Silver.png', class: 'img-fluid', width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.silver') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Gold.png', class: 'img-fluid', width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.gold') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Platinum.png', class: 'img-fluid', width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.platinum') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Diamond.png', class: 'img-fluid',  width: 170 %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.diamond') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Master.png', class: 'img-fluid', width: 170, alt: 'Iron' %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.master') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Grandmaster.png', class: 'img-fluid', width: 170, alt: 'Iron' %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.grandmaster') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none text-light">
+                            <div class="d-flex flex-column align-items-center dark-card card rounded-4">
+                                <%= image_tag 'Emblem_Challenger.png', class: 'img-fluid', width: 170, alt: 'Iron' %>
+                                <div class="main-text mx-4 mb-4">
+                                    <h1 class="text-center text-decoration-none h2"><%= t('tiers.challenger') %></h1>
+                                    <p class="small">Players in this tier usually are not so good</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p>or</p>
+            <a href="#" data-action="">Go back</a>
+        </div>
+        <form id="recommendation-form">
+            <input type="hidden" name="position" id="form-position">
+            <input type="hidden" name="tier" id="form-tier">
+        </form>
     </div>
 </div>

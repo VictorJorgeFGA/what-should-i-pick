@@ -71,6 +71,7 @@ es:
       name: Apoyo
       description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
   tiers:
+    current_tier_question: ¿Cuál es tu nivel actual?
     iron: Iron
     bronze: Bronce
     silver: Plata

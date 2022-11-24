@@ -71,6 +71,7 @@ pt-BR:
       name: Suporte
       description: Campeões Suporte são os guardiões da equipe. Eles ajudam a manter seus aliados vivos e focam primordialmente em armar abates, protegendo seu parceiro na rota inferior até que fique mais forte.
   tiers:
+    current_tier_question: Qual é o seu elo atual?
     iron: Ferro
     bronze: Bronze
     silver: Prata

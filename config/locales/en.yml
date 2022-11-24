@@ -71,6 +71,7 @@ en:
       name: Support
       description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
   tiers:
+    current_tier_question: What is your current tier?
     iron: Iron
     bronze: Bronze
     silver: Silver
