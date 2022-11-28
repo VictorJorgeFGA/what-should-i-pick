@@ -55,6 +55,7 @@ pt-BR:
     all: Todas as posições
   lanes:
     preffered_lane_question: Com qual rota você mais se identifica?
+    no_lane: Não tenho uma rota preferida
     top:
       name: Topo
       description: Campeões na rota superior são os lutadores durões e solitários da equipe. O trabalho deles é proteger a própria rota e focar seu dano nos membros mais fortes da equipe inimiga.
@@ -72,6 +73,7 @@ pt-BR:
       description: Campeões Suporte são os guardiões da equipe. Eles ajudam a manter seus aliados vivos e focam primordialmente em armar abates, protegendo seu parceiro na rota inferior até que fique mais forte.
   tiers:
     current_tier_question: Qual é o seu elo atual?
+    unranked_button: Não possuo elo
     iron: Ferro
     bronze: Bronze
     silver: Prata

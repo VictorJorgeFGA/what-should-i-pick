@@ -55,6 +55,7 @@ es:
     all: Todas las posiciones
   lanes:
     preffered_lane_question: ¿Con qué calle te identificas más?
+    no_lane: No tengo una calle preferida
     top:
       name: Superior
       description: Los campeones de la calle superior son los luchadores solitarios por excelencia. Su trabajo es proteger su calle y centrarse en eliminar a las mayores amenazas del equipo enemigo.
@@ -72,6 +73,7 @@ es:
       description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
   tiers:
     current_tier_question: ¿Cuál es tu nivel actual?
+    unranked_button: No estoy clasificado
     iron: Iron
     bronze: Bronce
     silver: Plata

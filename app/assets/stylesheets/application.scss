@@ -220,22 +220,25 @@ $list-group-action-hover-color:     #FFF;
     border-style: solid;
     border-color: #2D263E;
     border-width: 2px;
+}
+
+.hoverable-grayscaled {
     filter: grayscale(100%);
 }
 
+.hoverable-grayscaled:hover {
+    filter: grayscale(0%);
+    transition: 300ms;
+}
+
 .champion-card {
-    min-height: 585px;
+    height: 100%;
 }
 
 .position-icon-img {
     margin-top: -90px;
     background-color: #1E1828;
     padding: 20px;
-}
-
-.dark-card:hover {
-    filter: grayscale(0%);
-    transition: 400ms;
 }
 //
 
@@ -262,3 +265,7 @@ $list-group-action-hover-color:     #FFF;
     50% { border-color: rgb(110, 107, 116); }
 }
 //
+
+.grid-container {
+    display: grid;
+}

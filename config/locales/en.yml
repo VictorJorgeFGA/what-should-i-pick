@@ -55,6 +55,7 @@ en:
     all: All positions
   lanes:
     preffered_lane_question: Which lane do you most identify with?
+    no_lane: I don't have a preferred lane
     top:
       name: Top
       description: Champions in top lane are the tough solo fighters of the team. It’s their job to protect their lane and focus on the enemy team’s most powerful members.
@@ -72,6 +73,7 @@ en:
       description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
   tiers:
     current_tier_question: What is your current tier?
+    unranked_button: I'm Unranked
     iron: Iron
     bronze: Bronze
     silver: Silver
