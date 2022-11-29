@@ -74,16 +74,39 @@ en:
   tiers:
     current_tier_question: What is your current tier?
     unranked_button: I'm Unranked
-    iron: Iron
-    bronze: Bronze
-    silver: Silver
-    gold: Gold
-    platinum: Platinum
-    diamond: Diamond
-    master: Master
-    grandmaster: Grandmaster
-    challenger: Challenger
-    all: All tiers
+    unranked:
+      name: Unranked
+      description: Players who aren't classified in any league.
+    iron:
+      name: Iron
+      description: This league is meant for newbie players who are starting to learn about the game.
+    bronze:
+      name: Bronze
+      description: Players in this league already know a bit of the game. They're starting to get better.
+    silver:
+      name: Silver
+      description: Players in this league are starting to get used to the game/champions mechanics.
+    gold:
+      name: Gold
+      description: Players in this league usually is starting to master some mechanics and getting better.
+    platinum:
+      name: Platinum
+      description: Players in this league tend to be used to a champion/position and master it at some level.
+    diamond:
+      name: Diamond
+      description: Players in this league already master a champion/position and know all the basics of everything
+    master:
+      name: Master
+      description: Players in this league are undoubtedly experienced. They are usually fighting among the best
+    grandmaster:
+      name: Grandmaster
+      description: Players in this league are undoubtedly experienced. They are usually fighting among the best
+    challenger:
+      name: Challenger
+      description: This is the highest league in the game. Players in this league are fighting to be the best
+    all:
+      name: All tiers
+      description: All tiers
   regions:
     global: Global
     na: North America

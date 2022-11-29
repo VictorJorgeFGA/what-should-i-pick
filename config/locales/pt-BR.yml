@@ -74,16 +74,39 @@ pt-BR:
   tiers:
     current_tier_question: Qual é o seu elo atual?
     unranked_button: Não possuo elo
-    iron: Ferro
-    bronze: Bronze
-    silver: Prata
-    gold: Ouro
-    platinum: Platina
-    diamond: Diamante
-    master: Mestre
-    grandmaster: Grão-mestre
-    challenger: Desafiante
-    all: Todos os Elos
+    unranked:
+      name: Sem classificação
+      description: Jogadores que não estão classificados em nenhuma liga.
+    iron:
+      name: Ferro
+      description: Esta liga é destinada a jogadores novatos que estão começando a aprender sobre o jogo.
+    bronze:
+      name: Bronze
+      description: Os jogadores desta liga já conhecem um pouco do jogo. Eles estão começando a melhorar.
+    silver:
+      name: Prata
+      description: Os jogadores desta liga estão começando a se acostumar com a mecânica de jogo/campeões.
+    gold:
+      name: Ouro
+      description: Os jogadores nesta liga geralmente estão começando a dominar algumas mecânicas e melhorando.
+    platinum:
+      name: Platina
+      description: Os jogadores nesta liga tendem a ser acostumados com um campeão/posição e dominam em algum nível.
+    diamond:
+      name: Diamante
+      description: Os jogadores desta liga já dominam um campeão/posição e conhecem todos os fundamentos de tudo
+    master:
+      name: Mestre
+      description: Os jogadores desta liga são, sem dúvida, experientes. Eles geralmente estão lutando entre os melhores
+    grandmaster:
+      name: Grão-Mestre
+      description: Os jogadores desta liga são, sem dúvida, experientes. Eles geralmente estão lutando entre os melhores
+    challenger:
+      name: Desafiante
+      description: This is the highest league in the game. Players in this league are fighting to be the best
+    all:
+      name: Todos os elos
+      description: Todos os elos
   regions:
     global: Global
     na: America do Norte
