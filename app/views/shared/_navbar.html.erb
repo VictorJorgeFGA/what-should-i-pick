@@ -12,7 +12,7 @@
           <%= link_to t('navbar.home'), root_path, class: "nav-link text-uppercase text-center fw-bold #{'active' if current_page? root_path}" %>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link text-uppercase text-center fw-bold" href="#"><%= t('navbar.recommendations') %></a>
+          <a class="nav-link text-uppercase text-center fw-bold" href="<%= new_recommendation_path %>"><%= t('navbar.recommendations') %></a>
         </li>
         <li class="nav-item mx-1">
           <%= link_to t('navbar.champions'), champions_path, class: "nav-link text-uppercase text-center fw-bold #{'active' if current_page? champions_path}" %>

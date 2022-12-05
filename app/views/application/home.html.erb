@@ -1,4 +1,4 @@
-<div class="container-fluid px-0" style="background-image: url(<%= image_url 'vayne.jpg' %>);background-size: cover;height: 100vh;">
+<div class="container-fluid px-0" style="background-image: url(<%= image_url 'vayne.jpg' %>);background-size: cover; background-attachment: fixed;">
   <div class="container-fluid top-gradient">
     <div class="container-sm d-flex flex-column justify-content-center vh-100">
       <div class="m-5">
@@ -8,9 +8,9 @@
         </section>
       </div>
       <div class="m-5 d-flex justify-content-center">
-        <button type="button" class="btn col-6 btn-lg btn-hover color-3">
+        <a href="<%= new_recommendation_path %>" class="btn col-6 btn-lg btn-hover color-3">
           <span class="text-uppercase fw-bold text-white text-wrap"><%= t('home.next_button') %></span>
-        </button>
+        </a>
       </div>
     </div>
   </div>

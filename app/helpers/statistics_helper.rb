@@ -16,7 +16,7 @@ module StatisticsHelper
   end
 
   def translated_tier(tier)
-    I18n.t("tiers.#{tier}")
+    I18n.t("tiers.#{tier}.name")
   end
 
   def translated_position(position)

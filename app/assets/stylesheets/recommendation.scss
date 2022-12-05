@@ -1,0 +1,21 @@
+.position-options-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+.tier-options-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem 2.5rem;
+}
+
+.options-section {
+    min-height: 100vh;
+}
+
+.champion-card {
+    height: 100% !important;
+}
+
+.tier-card {
+    height: 100% !important;
+}

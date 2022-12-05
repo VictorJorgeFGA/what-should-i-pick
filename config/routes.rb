@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/user_lang/:user_lang', to: 'application#change_user_language'
 
   resources :champions, only: [:index, :show]
+  resources :recommendations, except: [:index, :destroy]
 end

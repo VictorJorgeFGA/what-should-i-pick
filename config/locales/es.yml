@@ -53,17 +53,60 @@ es:
     adc: Inferior
     support: Apoyo
     all: Todas las posiciones
+  lanes:
+    preffered_lane_question: ¿Con qué calle te identificas más?
+    no_lane: No tengo una calle preferida
+    top:
+      name: Superior
+      description: Los campeones de la calle superior son los luchadores solitarios por excelencia. Su trabajo es proteger su calle y centrarse en eliminar a las mayores amenazas del equipo enemigo.
+    jungle:
+      name: Jungla
+      description: Los junglas dedican su partida a la caza. Se sirven de su destreza y sigilo para saltar de una calle a otra, se encargan de vigilar los monstruos neutrales más importantes y atacan en el momento preciso cuando un enemigo baja la guardia.
+    mid:
+      name: Central
+      description: Los campeones de la calle central cuentan con un gran daño explosivo y funcionan muy bien tanto de forma independiente como en equipo. Para ellos, el combate es una peligrosa danza que consiste en encontrar el momento idóneo para acabar con su rival.
+    bot:
+      name: ADC
+      description: Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.
+    support:
+      name: Apoyo
+      description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
   tiers:
-    iron: Iron
-    bronze: Bronce
-    silver: Plata
-    gold: Oro
-    platinum: Platino
-    diamond: Diamante
-    master: Maestro
-    grandmaster: Gran Maestro
-    challenger: Desafiador
-    all: Todos las Divisiones
+    current_tier_question: ¿Cuál es tu nivel actual?
+    unranked_button: No estoy clasificado
+    unranked:
+      name: Sin Clasificar
+      description: Jugadores que no estén clasificados en ninguna liga.
+    iron:
+      name: Hierro
+      description: Esta liga está pensada para jugadores novatos que están empezando a aprender sobre el juego.
+    bronze:
+      name: Bronce
+      description: Los jugadores de esta liga ya saben un poco del juego. Están empezando a mejorar.
+    silver:
+      name: Plata
+      description: Los jugadores de esta liga están empezando a acostumbrarse a la mecánica del juego/campeones.
+    gold:
+      name: Oro
+      description: Los jugadores en esta liga generalmente comienzan a dominar algunas mecánicas y mejoran.
+    platinum:
+      name: Platino
+      description: Los jugadores de esta liga tienden a estar acostumbrados a un campeón/posición y dominarlo en algún nivel.
+    diamond:
+      name: Diamante
+      description: Los jugadores de esta liga ya dominan un campeón/posición y conocen todos los conceptos básicos de todo.
+    master:
+      name: Maestro
+      description: Los jugadores de esta liga sin duda tienen experiencia. Suelen pelear entre los mejores.
+    grandmaster:
+      name: Gran Maestro
+      description: Los jugadores de esta liga sin duda tienen experiencia. Suelen pelear entre los mejores.
+    challenger:
+      name: Desafiador
+      description: Esta es la liga más alta del juego. Los jugadores de esta liga luchan por ser los mejores
+    all:
+      name: All tiers
+      description: All tiers
   regions:
     global: Global
     na: América del Norte
