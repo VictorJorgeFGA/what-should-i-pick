@@ -177,6 +177,7 @@ namespace :riot_api do
       champ = Champion.create(
         {
           name: data['name'],
+          name_id: data['id'],
           key: data['key'],
           title: data['title'],
           image_full: data['image']['full'],
@@ -194,7 +195,7 @@ namespace :riot_api do
           magic: data['info']['magic'].to_i,
           difficulty: data['info']['difficulty'].to_i,
           primary_role: data['tags'][0].downcase,
-          secondary_role: data['tags'][1].downcase,
+          secondary_role: data['tags'][1]&.downcase,
           enemy_tips: data['enemytips'].join(' '),
           ally_tips: data['allytips'].join(' ')
         }
