@@ -107,6 +107,26 @@ en:
     all:
       name: All tiers
       description: All tiers
+  roles:
+    preferred_role_question: What is your preferred role?
+    tank:
+      name: Tank
+      description: ''
+    marksman:
+      name: Marksman
+      description: ''
+    support:
+      name: Support
+      description: ''
+    fighter:
+      name: Fighter
+      description: ''
+    assassin:
+      name: Assassin
+      description: ''
+    mage:
+      name: Mage
+      description: ''
   regions:
     global: Global
     na: North America

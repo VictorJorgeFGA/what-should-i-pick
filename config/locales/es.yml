@@ -105,8 +105,28 @@ es:
       name: Desafiador
       description: Esta es la liga más alta del juego. Los jugadores de esta liga luchan por ser los mejores
     all:
-      name: All tiers
-      description: All tiers
+      name: Todos los niveles
+      description: Todos los niveles
+  roles:
+    preferred_role_question: ¿Cuál es tu rol preferido?
+    tank:
+      name: Tanque
+      description: ''
+    marksman:
+      name: Tirador
+      description: ''
+    support:
+      name: Suporte
+      description: ''
+    fighter:
+      name: Luchador
+      description: ''
+    assassin:
+      name: Asesino
+      description: ''
+    mage:
+      name: Mago
+      description: ''
   regions:
     global: Global
     na: América del Norte

@@ -170,11 +170,67 @@
             </div>
         </div>
         <div id="choose-role" class="d-flex flex-column align-items-center justify-content-center options-section">
-            <h1>Choose role</h1>
+            <div class="typewriter my-5">
+                <h1 class="display-6 fw-bold"><%= t('roles.preferred_role_question') %></h1>
+            </div>
+            <div class="container my-3">
+                <div class="grid-container role-options-grid">
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.tank.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.marksman.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.support.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.fighter.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.assassin.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#confirm-form" class="text-decoration-none text-light hoverable-grayscaled">
+                        <div class="d-flex flex-column align-items-center dark-card card rounded-4 role-card">
+                            <div class="main-text mx-4 mb-4">
+                                <h1 class="text-center text-decoration-none h4"><%= t('roles.mage.name') %></h1>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="confirm-form" class="d-flex flex-column align-items-center justify-content-center options-section">
+            <a href="#" class="btn btn-primary">
+                <span class="fw-bold">
+                    <%= t('confirm') %>
+                </span>
+            </a>
         </div>
         <form id="recommendation-form">
             <input type="hidden" name="position" id="form-position">
             <input type="hidden" name="tier" id="form-tier">
+            <input type="hidden" name="role" id="form-role">
         </form>
     </div>
 </div>

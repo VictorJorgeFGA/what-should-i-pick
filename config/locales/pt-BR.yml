@@ -107,6 +107,26 @@ pt-BR:
     all:
       name: Todos os elos
       description: Todos os elos
+  roles:
+    preferred_role_question: Qual sua role preferida?
+    tank:
+      name: Tanque
+      description: ''
+    marksman:
+      name: Atirador
+      description: ''
+    support:
+      name: Suporte
+      description: ''
+    fighter:
+      name: Lutador
+      description: ''
+    assassin:
+      name: Assassino
+      description: ''
+    mage:
+      name: Mago
+      description: ''
   regions:
     global: Global
     na: America do Norte

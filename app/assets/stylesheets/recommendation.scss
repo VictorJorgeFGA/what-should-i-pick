@@ -8,6 +8,11 @@
     gap: 1.25rem 2.5rem;
 }
 
+.role-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 2.5rem;
+}
+
 .options-section {
     min-height: 100vh;
 }
@@ -17,5 +22,9 @@
 }
 
 .tier-card {
+    height: 100% !important;
+}
+
+.role-card {
     height: 100% !important;
 }
